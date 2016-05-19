@@ -7,7 +7,7 @@ using namespace std;
 int dx,dy;
 int theta;
 int contecla = 0;
-int lingua = 0;
+int lingua = 0, salta = 0;
 float g = 0;
 int vetor[256]= {0};
 
@@ -267,18 +267,37 @@ void idle(){
 	previousTime = currentTime;
 	
 	if(vetor['a'])
-		dx-=2;//(0.1*timeDifference);
-	if(vetor['w'])
-		dy+=2;//(0.1*timeDifference);
+		dx-=(0.1*timeDifference);
+	if(salta==0){
+		if(vetor['w']){
+			salta = 1;		
+		}
+		else dy = 0;	
+	}	
 	if(vetor['s'])
-		dy-=2;//(0.1*timeDifference);;
+		dy-=(0.1*timeDifference);
 	if(vetor['d'])
-		dx+=2;//(0.1*timeDifference);
-	//if(vetor[])
-	//if(dx>250)
-	//	dx=-350;	
+		dx+=(0.1*timeDifference);
+	if((salta == 1)){
+		dy+=(0.1*timeDifference);
+		if(dy==100){
+				salta = 2;
+				exit;		
+			}
+	}
+	if(salta == 2){
+		dy-=(0.1*timeDifference);		
+		if(dy == 0){ 
+			salta = 0;			
+			exit;
+			}
+	}
+	if (salta ==0)
+		dy = 0;			
+	//if(dy>250)
+	//	dy=-350;	
 	//else
-	//	dx+=(0.4*timeDifference);
+	//	dy+=(0.4*timeDifference);
 	
 	glutPostRedisplay();
 } 
