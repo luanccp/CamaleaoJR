@@ -242,7 +242,11 @@ void keyboardup(unsigned char tecla, int x, int y)
 
 			vetor[(int)('d')] = 0;
 			break;
-			}
+		case 'z':
+			vetor[(int)('z')] = 0;
+			break;		
+	}
+		
 	glutPostRedisplay();
 }
 
@@ -293,7 +297,16 @@ void idle(){
 			}
 	}
 	if (salta ==0)
-		dy = 0;			
+		dy = 0;
+	if(lingua==1){
+		g-=(0.1*timeDifference);
+		//printf("lingua %f, dx: %d ",g,dx);		
+		if(g<=(dx-100)){
+			lingua=0;
+			g=-2;
+		}
+	}
+					
 	//if(dy>250)
 	//	dy=-350;	
 	//else
@@ -340,18 +353,15 @@ void keyboard(unsigned char tecla, int x, int y)
 				}
 			break;			
 		case 'z':
+			vetor[(int)('z')] = 1;
 			lingua = 1;
-			g-=2;			
+			//g-=2;			
 			break;
 		case 'x':
 			lingua = 0;
 			g=-2;
 			break;
-		case 'e':
-			theta-=2;
-			if(theta < -90){theta = -90;}
-			break;
-
+		
 	}
 	glutPostRedisplay();
 } 
