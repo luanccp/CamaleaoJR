@@ -111,6 +111,7 @@ void cobra_desenhaCorpo(void)
     glVertex3f(20.0,0.0,0.0);
     glEnd();
     
+<<<<<<< HEAD
     glEnd();
     glBegin(GL_TRIANGLE_FAN);
     glVertex3f(19.0,-14.0,0.0);
@@ -119,4 +120,6 @@ void cobra_desenhaCorpo(void)
     glVertex3f(14.0,-12.0,0.0);
     glVertex3f(19.0,-14.0,0.0);
     glEnd();
+=======
+>>>>>>> origin/master
 }

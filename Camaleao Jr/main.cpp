@@ -13,7 +13,8 @@
 #include <stdio.h>
 #include "camaleao.h"
 #include "moscas.h"
-#include "cobra.h"
+#include "controles.h"
+//#include "cobra.h"
 
 
 void display( void )
@@ -28,7 +29,7 @@ void display( void )
     mosca_display();
     
     /* EFETUA O DESENHO DO COBRA */
-    cobra_display();
+    //cobra_display();
     
     glutSwapBuffers();
 }
