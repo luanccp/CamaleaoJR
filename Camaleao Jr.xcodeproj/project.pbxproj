@@ -30,6 +30,7 @@
 		E86999991CF23E6200C810E9 /* camaleao.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = camaleao.h; sourceTree = "<group>"; };
 		E869999A1CF2406E00C810E9 /* moscas.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = moscas.h; sourceTree = "<group>"; };
 		E869999B1CF2407C00C810E9 /* cobra.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cobra.h; sourceTree = "<group>"; };
+		E869999C1CF2452000C810E9 /* controles.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = controles.h; sourceTree = "<group>"; };
 		E8944E2C1CE614DE00939E41 /* Camaleao Jr */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Camaleao Jr"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -71,6 +72,7 @@
 				E869999A1CF2406E00C810E9 /* moscas.h */,
 				E869999B1CF2407C00C810E9 /* cobra.h */,
 				E86999981CF23E2E00C810E9 /* main.cpp */,
+				E869999C1CF2452000C810E9 /* controles.h */,
 			);
 			path = "Camaleao Jr";
 			sourceTree = "<group>";

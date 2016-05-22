@@ -8,12 +8,12 @@
 #include <GL/glut.h>
 #endif
 
-
-
 #include <iostream>
 #include <math.h>
 #include <stdio.h>
 #include "camaleao.h"
+#include "moscas.h"
+#include "cobra.h"
 
 
 void display( void )
@@ -21,87 +21,25 @@ void display( void )
     //Limpar todos os pixels
     glClear( GL_COLOR_BUFFER_BIT );
     
-    glPushMatrix();
-    glTranslatef(dx+70, dy+11, 0);
-    desenhaRabo();
-    glPopMatrix();
+    /* EFETUA O DESENHO DO CAMALEAO */
+    camaleao_display();
     
-    glPushMatrix();
-    glTranslatef(dx+60, dy, 0);
-    desenhaCorpo1();
-    glPopMatrix();
-    glPushMatrix();
-    glTranslatef(dx+45, dy, 0);
-    desenhaCorpo2();
-    glPopMatrix();
+    /* EFETUA O DESENHO DO MOSCA */
+    mosca_display();
     
-    if(lingua == 1){
-        glPushMatrix();
-        glTranslatef(dx+25, dy, 0);
-        desenhaLingua();
-        glPopMatrix();
-    }
-    
-    glPushMatrix();
-    glTranslatef(dx+25, dy, 0);
-    desenhaCabeca1();
-    glPopMatrix();
-    glPushMatrix();
-    glTranslatef(dx+25, dy, 0);
-    desenhaCabeca2();
-    glPopMatrix();
-    glPushMatrix();
-    glTranslatef(dx+55, dy-15, 0);
-    glRotatef(-theta,0,0,1);
-    desenhaPe1();
-    glPopMatrix();
-    glPushMatrix();
-    glTranslatef(dx+35, dy-15, 0);
-    glRotatef(-theta,0,0,1);
-    desenhaPe2();
-    glPopMatrix();
-    
-    glPushMatrix();
-    glTranslatef(dx+25, dy+7, 0);
-    desenhaOlho();
-    glPopMatrix();
+    /* EFETUA O DESENHO DO COBRA */
+    cobra_display();
     
     glutSwapBuffers();
 }
-void keyboardup(unsigned char tecla, int x, int y)
-{
-    switch(tecla)
-    {
-        case 'w':
-            
-            vetor[(int)('w')] = 0;
-            break;
-        case 's':
-            
-            vetor[(int)('s')] = 0;
-            break;
-        case 'a':
-            
-            vetor[(int)('a')] = 0;
-            break;
-        case 'd':
-            
-            vetor[(int)('d')] = 0;
-            break;
-        case 'z':
-            vetor[(int)('z')] = 0;
-            break;
-    }
-    
-    glutPostRedisplay();
-}
+
 
 void init( void )
 {
     //Selecionar cor de fundo preto
     glClearColor( 1.0, 1.0, 1.0, 1.0 );
     
-    //Inicializar sistema de visualizaçao
+    //Inicializar sistema de visualizacao
     glMatrixMode( GL_PROJECTION );
     glLoadIdentity();
     glOrtho( -250, 250, -250, 250, 100, -100 );
@@ -161,56 +99,6 @@ void idle(){
     glutPostRedisplay();
 }
 
-void keyboard(unsigned char tecla, int x, int y)
-{
-    switch(tecla)
-    {
-        case 27:
-            exit(0);
-            break;
-        case 'w':
-            vetor[(int)('w')] = 1;
-            //dy+=2;
-            break;
-        case 's':
-            vetor[(int)('s')] = 1;
-            //dy-=2;
-            break;
-        case 'a':
-            vetor[(int)('a')] = 1;
-            //dx-=2;
-            contecla++;
-            if((contecla%2) == 0 ){
-                theta = 0;
-            }
-            if((contecla%2) == 1 ){
-                theta = -45;
-            }
-            break;
-        case 'd':
-            vetor[(int)('d')] = 1;
-            //dx+=2;
-            contecla++;
-            if((contecla%2) == 0 ){
-                theta = 0;
-            }
-            if((contecla%2) == 1 ){
-                theta = 45;
-            }
-            break;			
-        case 'z':
-            vetor[(int)('z')] = 1;
-            lingua = 1;
-            //g-=2;			
-            break;
-        case 'x':
-            lingua = 0;
-            g=-2;
-            break;
-            
-    }
-    glutPostRedisplay();
-} 
 
 int main(int argc, char *argv[])
 {

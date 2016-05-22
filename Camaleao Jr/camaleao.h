@@ -193,3 +193,51 @@ void desenhaLingua(){
     glVertex3f(g,-7.0,0.0);
     glEnd();
 }
+
+void camaleao_display(void)
+{
+    glPushMatrix();
+    glTranslatef(dx+70, dy+11, 0);
+    desenhaRabo();
+    glPopMatrix();
+    
+    glPushMatrix();
+    glTranslatef(dx+60, dy, 0);
+    desenhaCorpo1();
+    glPopMatrix();
+    glPushMatrix();
+    glTranslatef(dx+45, dy, 0);
+    desenhaCorpo2();
+    glPopMatrix();
+    
+    if(lingua == 1){
+        glPushMatrix();
+        glTranslatef(dx+25, dy, 0);
+        desenhaLingua();
+        glPopMatrix();
+    }
+    
+    glPushMatrix();
+    glTranslatef(dx+25, dy, 0);
+    desenhaCabeca1();
+    glPopMatrix();
+    glPushMatrix();
+    glTranslatef(dx+25, dy, 0);
+    desenhaCabeca2();
+    glPopMatrix();
+    glPushMatrix();
+    glTranslatef(dx+55, dy-15, 0);
+    glRotatef(-theta,0,0,1);
+    desenhaPe1();
+    glPopMatrix();
+    glPushMatrix();
+    glTranslatef(dx+35, dy-15, 0);
+    glRotatef(-theta,0,0,1);
+    desenhaPe2();
+    glPopMatrix();
+    
+    glPushMatrix();
+    glTranslatef(dx+25, dy+7, 0);
+    desenhaOlho();
+    glPopMatrix();
+}
