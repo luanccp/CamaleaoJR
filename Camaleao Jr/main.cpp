@@ -13,7 +13,7 @@
 #include <iostream>
 #include <math.h>
 #include <stdio.h>
-#include <personagens.h>
+#include "camaleao.h"
 
 
 void display( void )
