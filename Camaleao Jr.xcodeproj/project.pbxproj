@@ -27,7 +27,9 @@
 		E86999931CF2345C00C810E9 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
 		E86999951CF2346400C810E9 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		E86999981CF23E2E00C810E9 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		E86999991CF23E6200C810E9 /* personagens.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = personagens.h; sourceTree = "<group>"; };
+		E86999991CF23E6200C810E9 /* camaleao.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = camaleao.h; sourceTree = "<group>"; };
+		E869999A1CF2406E00C810E9 /* moscas.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = moscas.h; sourceTree = "<group>"; };
+		E869999B1CF2407C00C810E9 /* cobra.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cobra.h; sourceTree = "<group>"; };
 		E8944E2C1CE614DE00939E41 /* Camaleao Jr */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Camaleao Jr"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -65,7 +67,9 @@
 		E8944E2E1CE614DE00939E41 /* Camaleao Jr */ = {
 			isa = PBXGroup;
 			children = (
-				E86999991CF23E6200C810E9 /* personagens.h */,
+				E86999991CF23E6200C810E9 /* camaleao.h */,
+				E869999A1CF2406E00C810E9 /* moscas.h */,
+				E869999B1CF2407C00C810E9 /* cobra.h */,
 				E86999981CF23E2E00C810E9 /* main.cpp */,
 			);
 			path = "Camaleao Jr";
