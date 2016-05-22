@@ -23,7 +23,7 @@ void display( void )
     glClear( GL_COLOR_BUFFER_BIT );
     
     /* EFETUA O DESENHO DO CAMALEAO */
-    camaleao_display();
+    //camaleao_display();
     
     /* EFETUA O DESENHO DO MOSCA */
     mosca_display();

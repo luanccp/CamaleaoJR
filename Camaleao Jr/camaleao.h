@@ -59,35 +59,36 @@ void desenhaRabo(void)
 {
     glColor3f(0.0f, 0.0f, 1.0f); // azul
     
+    
+    glBegin(GL_QUADS);
+        glVertex3f(-10.0,-15.0,0.0);
+        glVertex3f(0.0,0.0,0.0);
+        glVertex3f(0.0,5.0,0.0);
+        glVertex3f(-10.0,-5.0,0.0);
     glEnd();
     
     glBegin(GL_QUADS);
-    glVertex3f(-10.0,-15.0,0.0);
-    glVertex3f(0.0,0.0,0.0);
-    glVertex3f(0.0,5.0,0.0);
-    glVertex3f(-10.0,-5.0,0.0);
-    glEnd();
-    glBegin(GL_QUADS);
-    glVertex3f(0.0,0.0,0.0);
-    glVertex3f(20.0,-8.0,0.0);
-    glVertex3f(20.0,0.0,0.0);
-    glVertex3f(0.0,5.0,0.0);
-    glEnd();
-    glBegin(GL_TRIANGLE_FAN);
-    glVertex3f(20.0,-8.0,0.0);
-    glVertex3f(19.0,-14.0,0.0);
-    glVertex3f(22.0,-14,0.0);
-    glVertex3f(24.0,-8.0,0.0);
-    glVertex3f(20.0,0.0,0.0);
+        glVertex3f(0.0,0.0,0.0);
+        glVertex3f(20.0,-8.0,0.0);
+        glVertex3f(20.0,0.0,0.0);
+        glVertex3f(0.0,5.0,0.0);
     glEnd();
     
-    glEnd();
     glBegin(GL_TRIANGLE_FAN);
-    glVertex3f(19.0,-14.0,0.0);
-    glVertex3f(16.0,-8.0,0.0);
-    glVertex3f(14.0,-10.0,0.0);
-    glVertex3f(14.0,-12.0,0.0);
-    glVertex3f(19.0,-14.0,0.0);
+        glVertex3f(20.0,-8.0,0.0);
+        glVertex3f(19.0,-14.0,0.0);
+        glVertex3f(22.0,-14,0.0);
+        glVertex3f(24.0,-8.0,0.0);
+        glVertex3f(20.0,0.0,0.0);
+    glEnd();
+    
+
+    glBegin(GL_TRIANGLE_FAN);
+        glVertex3f(19.0,-14.0,0.0);
+        glVertex3f(16.0,-8.0,0.0);
+        glVertex3f(14.0,-10.0,0.0);
+        glVertex3f(14.0,-12.0,0.0);
+        glVertex3f(19.0,-14.0,0.0);
     glEnd();
     
 }
