@@ -36,22 +36,22 @@ void DrawEllipse(float a,float b, float c)
 void mosca_asa1()
 {
 	glBegin(GL_QUADS);	
-		glColor3f(1,0,0);
-		DrawEllipse(45,6,0);
+		glColor3f(0.7f,0.7f,0.7f);
+		DrawEllipse(13,4,0);
 	glEnd();
 }
 void mosca_asa2()
 {
 	glBegin(GL_QUADS);	
-		glColor3f(1,0,0);
-		DrawEllipse(45,8,0);
+		glColor3f(0.7f,0.7f,0.7f);
+		DrawEllipse(12,8,0);
 	glEnd();
 }
 void mosca_desenhaCorpo()
 {
 	glBegin(GL_QUADS);	
 		glColor3f(0,0,0);
-		DrawEllipse(15,30,0);
+		DrawEllipse(5,15,0);
 	glEnd();
 	//glBegin(GL_QUADS);
 	//	glVertex3f(.0,0.0,0.0);
@@ -93,15 +93,15 @@ void mosca_desenhaCorpo()
 void mosca_primeiroOlho()
 {
 	glBegin(GL_QUADS);	
-		glColor3f(1,0,1);
-		DrawEllipse(8,12,0);
+		glColor3f(0,0,0);
+		DrawEllipse(3,7,0);
 	glEnd();
 }
 void mosca_segundoOlho()
 {
 	glBegin(GL_QUADS);	
-		glColor3f(1,0,1);
-		DrawEllipse(8,12,0);
+		glColor3f(0,0,0);
+		DrawEllipse(3,7,0);
 	glEnd();
 }
 void mosca_display(void)
@@ -111,7 +111,7 @@ void mosca_display(void)
 	  mosca_asa1();
 	glPopMatrix();
 	glPushMatrix();
-	  glTranslatef(dx-70, dy-15, 0);
+	  glTranslatef(dx-70, dy-10, 0);
 	  mosca_asa2();
 	glPopMatrix();	
 	glPushMatrix();
@@ -119,11 +119,11 @@ void mosca_display(void)
 	    mosca_desenhaCorpo();
 	glPopMatrix();	
 	glPushMatrix();
-	  glTranslatef(dx-78, dy+15, 0);
+	  glTranslatef(dx-72, dy+3, 0);
 	  mosca_primeiroOlho();
 	glPopMatrix();
 	glPushMatrix();
-	  glTranslatef(dx-62, dy+15, 0);
+	  glTranslatef(dx-68, dy+3, 0);
 	  mosca_segundoOlho();
 	glPopMatrix();
 }
