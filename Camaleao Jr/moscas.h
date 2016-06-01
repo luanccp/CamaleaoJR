@@ -33,6 +33,22 @@ void DrawEllipse(float a,float b, float c)
        }
        glEnd();
 }
+
+void DrawEllipse2(float a,float b, float c)
+{
+      // glColor3f(0,0,0);
+	float x,y,z;
+	int t;
+        glBegin(GL_POINTS);
+        for(t = 0; t <= 360; t +=1)
+	{
+          x = a*cos(t);
+	  y = b*sin(t);
+	  z = c;
+	 glVertex3f(x,y,z);
+       }
+       glEnd();
+}
 void mosca_asa1()
 {
 	glBegin(GL_QUADS);	
@@ -104,6 +120,42 @@ void mosca_segundoOlho()
 		DrawEllipse(3,7,0);
 	glEnd();
 }
+void mosca_desenhaPe1()
+{
+	glBegin(GL_LINES);
+		glColor3f(0,0,0);
+		glVertex3f(0.0,0.0,0.0);
+		glVertex3f(-2.0,6.0,0.0);		
+	glEnd();
+}
+void mosca_desenhaPe2()
+{
+	glBegin(GL_LINES);
+		glColor3f(0,0,0);
+		glVertex3f(0.0,0.0,0.0);
+		glVertex3f(2.0,6.0,0.0);	
+	glEnd();
+}
+void mosca_desenhaMao1()
+{
+	glBegin(GL_LINES);
+		glColor3f(0,0,0);
+		glVertex3f(0.0,0.0,0.0);
+		glVertex3f(3.0,6.0,0.0);	
+	glEnd();
+}
+void mosca_desenhaMao2()
+{
+	glBegin(GL_LINES);
+		glColor3f(0,0,0);
+		glVertex3f(0.0,0.0,0.0);
+		glVertex3f(-3.0,6.0,0.0);	
+	glEnd();
+}
+//mosca_detalheOlho1(){
+	
+
+//}
 void mosca_display(void)
 {
 	glPushMatrix();
@@ -126,4 +178,29 @@ void mosca_display(void)
 	  glTranslatef(dx-68, dy+3, 0);
 	  mosca_segundoOlho();
 	glPopMatrix();
+	glPushMatrix();
+	  glTranslatef(dx-65, dy-25, 0);
+	  mosca_desenhaPe1();
+	glPopMatrix();
+	glPushMatrix();
+	  glTranslatef(dx-68, dy-28, 0);
+	  mosca_desenhaPe1();
+	glPopMatrix();		
+	glPushMatrix();
+	  glTranslatef(dx-72, dy-28, 0);
+	  mosca_desenhaPe2();
+	glPopMatrix();
+	glPushMatrix();
+	  glTranslatef(dx-75, dy-25, 0);
+	  mosca_desenhaPe2();
+	glPopMatrix();
+	glPushMatrix();
+	  glTranslatef(dx-78, dy-14, 0);
+	  mosca_desenhaMao1();
+	glPopMatrix();
+	glPushMatrix();
+	glTranslatef(dx-62, dy-14, 0);
+	  mosca_desenhaMao2();
+	glPopMatrix();	
+	
 }
