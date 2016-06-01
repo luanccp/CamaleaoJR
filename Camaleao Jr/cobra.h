@@ -26,15 +26,6 @@
 #include <math.h>
 #include <stdio.h>
 
-using namespace std;
-int dx = 0;
-int dy = 0;
-int theta;
-int contecla = 0;
-int lingua = 0, salta = 0;
-float g = 0;
-int vetor[256]= {0};
-
 
 void cobra_display(void)
 {
