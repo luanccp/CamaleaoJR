@@ -34,6 +34,7 @@ int lingua = 0, salta = 0;
 float g = 0;
 int vetor[256]= {0};
 
+
 void drawHollowCircle(float x, float y, float radius)
 {
     int i;
