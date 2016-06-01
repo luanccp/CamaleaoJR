@@ -23,11 +23,15 @@ void display( void )
     glClear( GL_COLOR_BUFFER_BIT );
     
     /* EFETUA O DESENHO DO CAMALEAO */
-    camaleao_display();
-    
+	glPushMatrix();    
+		glRotatef(180,0.0,1.0,0.0);	
+		camaleao_display();
+    	glPopMatrix();
     /* EFETUA O DESENHO DO MOSCA */
-    mosca_display();
-    
+    glPushMatrix();
+    	glRotatef(180,0.0,1.0,0.0);
+	mosca_display();
+    glPopMatrix();
     /* EFETUA O DESENHO DO COBRA */
     //cobra_display();
     
@@ -55,7 +59,7 @@ void idle(){
     timeDifference = currentTime - previousTime;
     previousTime = currentTime;
     
-    if(vetor['a'])
+    if(vetor['d'])
         dx-=(0.1*timeDifference);
     if(salta==0){
         if(vetor['w']){
@@ -65,7 +69,7 @@ void idle(){
     }
     if(vetor['s'])
         dy-=(0.1*timeDifference);
-    if(vetor['d'])
+    if(vetor['a'])
         dx+=(0.1*timeDifference);
     if((salta == 1)){
         dy+=(0.1*timeDifference);

@@ -72,7 +72,7 @@ void keyboard(unsigned char tecla, int x, int y)
                 theta = 0;
             }
             if((contecla%2) == 1 ){
-                theta = -45;
+                theta = 45;
             }
             break;
         case 'd':
@@ -83,7 +83,7 @@ void keyboard(unsigned char tecla, int x, int y)
                 theta = 0;
             }
             if((contecla%2) == 1 ){
-                theta = 45;
+                theta = -45;
             }
             break;
         case 'z':
