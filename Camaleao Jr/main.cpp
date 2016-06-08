@@ -1,3 +1,4 @@
+
 #if defined __APPLE__
 #include <OpenGL/gl.h>
 #include <OpenGL/glu.h>
@@ -8,6 +9,7 @@
 #include <GL/glut.h>
 #endif
 
+#include <vector>
 #include <iostream>
 #include <math.h>
 #include <stdio.h>
@@ -15,13 +17,23 @@
 #include "moscas.h"
 #include "controles.h"
 //#include "cobra.h"
+#include "fase.h"
+
+#define PI '3.14'
+using namespace std;
 
 
 void display( void )
 {
-    //Limpar todos os pixels
+	float v1=0;
+    int vrand,vespacamento;
+    float v2=10;
+	
+       
+	//Limpar todos os pixels
     glClear( GL_COLOR_BUFFER_BIT );
     
+
     /* EFETUA O DESENHO DO CAMALEAO */
 	glPushMatrix();    
 		glRotatef(180,0.0,1.0,0.0);	
@@ -35,7 +47,10 @@ void display( void )
     /* EFETUA O DESENHO DO COBRA */
     //cobra_display();
     
-    glutSwapBuffers();
+    /*EFETUA O DESENHO DA FASE*/	
+    fase_display(v1,vrand,vespacamento,v2);
+
+	glutSwapBuffers();
 }
 
 
