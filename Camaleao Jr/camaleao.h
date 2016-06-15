@@ -62,10 +62,10 @@ void desenhaRabo(void)
     
     
     glBegin(GL_QUADS);
-        glVertex3f(-10.0,-15.0,0.0);
+        glVertex3f(-12.0,-20.0,0.0);
         glVertex3f(0.0,0.0,0.0);
         glVertex3f(0.0,5.0,0.0);
-        glVertex3f(-10.0,-5.0,0.0);
+        glVertex3f(-12.0,-5.0,0.0);
     glEnd();
     
     glBegin(GL_QUADS);
@@ -199,17 +199,17 @@ void desenhaLingua(){
 void camaleao_display(void)
 {
     glPushMatrix();
-    glTranslatef(dx+70, dy+11, 0);
-    desenhaRabo();
+    	glTranslatef(dx+74, dy+16, 0);
+    	desenhaRabo();
     glPopMatrix();
     
     glPushMatrix();
-    glTranslatef(dx+60, dy, 0);
-    desenhaCorpo1();
+    	glTranslatef(dx+60, dy, 0);
+    	desenhaCorpo1();
     glPopMatrix();
     glPushMatrix();
-    glTranslatef(dx+45, dy, 0);
-    desenhaCorpo2();
+    	glTranslatef(dx+45, dy+2, 0);
+    	desenhaCorpo2();
     glPopMatrix();
     
     if(lingua == 1){
@@ -220,26 +220,26 @@ void camaleao_display(void)
     }
     
     glPushMatrix();
-    glTranslatef(dx+25, dy, 0);
-    desenhaCabeca1();
+    	glTranslatef(dx+25, dy, 0);
+    	desenhaCabeca1();
     glPopMatrix();
     glPushMatrix();
-    glTranslatef(dx+25, dy, 0);
-    desenhaCabeca2();
+    	glTranslatef(dx+25, dy+2, 0);
+    	desenhaCabeca2();
     glPopMatrix();
     glPushMatrix();
-    glTranslatef(dx+55, dy-15, 0);
-    glRotatef(-theta,0,0,1);
-    desenhaPe1();
+    	glTranslatef(dx+55, dy-15, 0);
+    	glRotatef(-theta,0,0,1);
+    	desenhaPe1();
     glPopMatrix();
     glPushMatrix();
-    glTranslatef(dx+35, dy-15, 0);
-    glRotatef(-theta,0,0,1);
-    desenhaPe2();
+    	glTranslatef(dx+35, dy-15, 0);
+    	glRotatef(-theta,0,0,1);
+    	desenhaPe2();
     glPopMatrix();
     
     glPushMatrix();
-    glTranslatef(dx+25, dy+7, 0);
-    desenhaOlho();
+    	glTranslatef(dx+25, dy+7, 0);
+    	desenhaOlho();
     glPopMatrix();
 }

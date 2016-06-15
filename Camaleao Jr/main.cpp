@@ -13,26 +13,54 @@
 #include <iostream>
 #include <math.h>
 #include <stdio.h>
+#include <ctime>
 #include "camaleao.h"
 #include "moscas.h"
 #include "controles.h"
 //#include "cobra.h"
 #include "fase.h"
-
+#define espacamento 10
 #define PI '3.14'
 using namespace std;
+int ciclo = 0;
 
+float v1[10]={0,0,0,0,0,0,0,0,0,0};
+int vrand[10],vespacamento[10],buraco;
+float v2[10]={10};   
+bool diferente(int i){
+	for(int j=0;j<i;j++)
+		if(vrand[i]==vrand[j])
+			return false;
+}
 
 void display( void )
 {
-	float v1=0;
-    int vrand,vespacamento;
-    float v2=10;
-	
        
 	//Limpar todos os pixels
     glClear( GL_COLOR_BUFFER_BIT );
-    
+	/*EFETUA O DESENHO DA FASE*/	
+	glPushMatrix();
+		srand(time(NULL));
+		if(ciclo == 0){
+			for (int i=0; i<10; i++) {
+				buraco = rand() %10;
+				buraco++;
+	      			vrand[i] = (rand() % 10);
+				vespacamento[i] = (rand() % 30);
+        			if(i==0){
+					v1[i]= 0 ;
+        				v2[i]=espacamento+vespacamento[i];
+				}else{
+					v1[i]=40+v2[i-1]+buraco ;
+        				v2[i]=40+v1[i]+espacamento+vespacamento[i];
+				}		 
+			}		
+			ciclo++;		
+		}    
+				
+		fase_display(v1,vrand,vespacamento,v2);
+	glPopMatrix();    
+
 
     /* EFETUA O DESENHO DO CAMALEAO */
 	glPushMatrix();    
@@ -47,12 +75,8 @@ void display( void )
     /* EFETUA O DESENHO DO COBRA */
     //cobra_display();
     
-    /*EFETUA O DESENHO DA FASE*/	
-    fase_display(v1,vrand,vespacamento,v2);
-
-	glutSwapBuffers();
+ 	glutSwapBuffers();
 }
-
 
 void init( void )
 {
@@ -63,6 +87,7 @@ void init( void )
     glMatrixMode( GL_PROJECTION );
     glLoadIdentity();
     glOrtho( -250, 250, -250, 250, 100, -100 );
+
 }
 void idle(){
     static char direction = -2;
@@ -75,7 +100,8 @@ void idle(){
     previousTime = currentTime;
     
     if(vetor['d'])
-        dx-=(0.1*timeDifference);
+        //dx-=(0.1*timeDifference);
+        andar+=(0.1*timeDifference); 
     if(salta==0){
         if(vetor['w']){
             salta = 1;
@@ -110,11 +136,8 @@ void idle(){
             g=-2;
         }
     }
-    
-    //if(dy>250)
-    //	dy=-350;
-    //else
-    //	dy+=(0.4*timeDifference);
+			    
+    //andar+=(0.1*timeDifference);
     
     glutPostRedisplay();
 }
@@ -125,13 +148,12 @@ int main(int argc, char *argv[])
     glutInit( &argc, argv );
     glutInitDisplayMode( GLUT_DOUBLE | GLUT_RGB );
     glutInitWindowSize( 400, 400 );
-    glutInitWindowPosition( 250, 50 );
+    glutInitWindowPosition( 0, 50 );
     glutCreateWindow( "Hello" );
-    
     init();
     
     glutDisplayFunc( display );
-    
+   
     glutKeyboardFunc( keyboard );
     glutKeyboardUpFunc( keyboardup );	
     glutIdleFunc(idle);

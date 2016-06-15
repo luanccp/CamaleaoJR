@@ -23,46 +23,20 @@
 
 #define PI '3.14'
 using namespace std;
+int andar;
 
-
-
-void fase_display( float v1, int vrand, int vespacamento, float v2 )
+void fase_display( float *v1, int *vrand, int *vespacamento, float *v2)
 {
-        
-    /*START CORDENANDAS*/
-    glPushMatrix();	
-    glColor3f( 0.0, 0.0, 0.0 );
-    glBegin( GL_LINES );
-        glVertex2f( 0, 400);
-        glVertex2f( 0, -400);
-    glEnd();
-    glPopMatrix();
 
-    glPushMatrix();	
-    glColor3f( 0.0, 0.0, 0.0);
-    glBegin(GL_LINES);
-        glVertex2f( 400, 0);
-        glVertex2f( -400, 0);
-    glEnd();
-    glPopMatrix();	
-    /*END CORDENADAS*/
+	glTranslatef(-andar, 0, 0);
+      	for (int i=0; i<10; i++) {
+	        glBegin(GL_QUADS);
+            		glVertex3f(v1[i],0,0.0);
+            		glVertex3f(v1[i],30+vrand[i],0.0);
+            		glVertex3f(v2[i]+20,30+vrand[i],0.0);
+            		glVertex3f(v2[i]+20,0,0.0);
+        	glEnd();
+	
+}
 
-    /*DESENHA FASE*/
-glPushMatrix();    
-for (int i=0; i<10; i++) {
-        vrand = (rand() % 10);
-        vespacamento = (rand() % 10);
-        v1= v1+10 +vespacamento;
-        v2 = v2+10+vespacamento ;
-        
-	//glPushMatrix();
-        glBegin(GL_QUADS);
-            glVertex3f(v1,0,0.0);
-            glVertex3f(v1,10+vrand,0.0);
-            glVertex3f(v2,10+vrand,0.0);
-            glVertex3f(v2,0,0.0);
-        glEnd();
-	glPopMatrix();
-    }
-    
 }
