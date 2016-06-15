@@ -24,14 +24,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E864CF461D11A11C00064D3F /* camaleao.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = camaleao.h; sourceTree = "<group>"; };
+		E864CF471D11A11C00064D3F /* cobra.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cobra.h; sourceTree = "<group>"; };
+		E864CF481D11A11C00064D3F /* controles.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = controles.h; sourceTree = "<group>"; };
+		E864CF491D11A11C00064D3F /* fase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fase.h; sourceTree = "<group>"; };
+		E864CF4A1D11A11C00064D3F /* main_fase.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main_fase.cpp; sourceTree = "<group>"; };
+		E864CF4B1D11A11C00064D3F /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		E864CF4C1D11A11C00064D3F /* moscas.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = moscas.h; sourceTree = "<group>"; };
 		E86999931CF2345C00C810E9 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
 		E86999951CF2346400C810E9 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
-		E86999981CF23E2E00C810E9 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		E86999991CF23E6200C810E9 /* camaleao.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = camaleao.h; sourceTree = "<group>"; };
-		E869999A1CF2406E00C810E9 /* moscas.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = moscas.h; sourceTree = "<group>"; };
-		E869999B1CF2407C00C810E9 /* cobra.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cobra.h; sourceTree = "<group>"; };
-		E869999C1CF2452000C810E9 /* controles.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = controles.h; sourceTree = "<group>"; };
-		E8944E2C1CE614DE00939E41 /* Camaleao Jr */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Camaleao Jr"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8944E2C1CE614DE00939E41 /* Camaleao Jr */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = "Camaleao Jr"; path = "/Users/luanccp/git/CamaleaoJR/build/Debug/Camaleao Jr"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,26 +55,19 @@
 				E86999951CF2346400C810E9 /* OpenGL.framework */,
 				E86999931CF2345C00C810E9 /* GLUT.framework */,
 				E8944E2E1CE614DE00939E41 /* Camaleao Jr */,
-				E8944E2D1CE614DE00939E41 /* Products */,
 			);
-			sourceTree = "<group>";
-		};
-		E8944E2D1CE614DE00939E41 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				E8944E2C1CE614DE00939E41 /* Camaleao Jr */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		E8944E2E1CE614DE00939E41 /* Camaleao Jr */ = {
 			isa = PBXGroup;
 			children = (
-				E86999991CF23E6200C810E9 /* camaleao.h */,
-				E869999A1CF2406E00C810E9 /* moscas.h */,
-				E869999B1CF2407C00C810E9 /* cobra.h */,
-				E86999981CF23E2E00C810E9 /* main.cpp */,
-				E869999C1CF2452000C810E9 /* controles.h */,
+				E864CF461D11A11C00064D3F /* camaleao.h */,
+				E864CF471D11A11C00064D3F /* cobra.h */,
+				E864CF481D11A11C00064D3F /* controles.h */,
+				E864CF491D11A11C00064D3F /* fase.h */,
+				E864CF4A1D11A11C00064D3F /* main_fase.cpp */,
+				E864CF4B1D11A11C00064D3F /* main.cpp */,
+				E864CF4C1D11A11C00064D3F /* moscas.h */,
 			);
 			path = "Camaleao Jr";
 			sourceTree = "<group>";
@@ -119,7 +114,7 @@
 				en,
 			);
 			mainGroup = E8944E231CE614DE00939E41;
-			productRefGroup = E8944E2D1CE614DE00939E41 /* Products */;
+			productRefGroup = E8944E231CE614DE00939E41;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
