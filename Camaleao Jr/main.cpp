@@ -65,11 +65,13 @@ void display( void )
     /* EFETUA O DESENHO DO CAMALEAO */
 	glPushMatrix();    
 		glRotatef(180,0.0,1.0,0.0);	
+		glTranslatef(0, 27, 0);	
 		camaleao_display();
     	glPopMatrix();
     /* EFETUA O DESENHO DO MOSCA */
     glPushMatrix();
     	glRotatef(180,0.0,1.0,0.0);
+	glTranslatef(0, 100, 0);	
 	mosca_display();
     glPopMatrix();
     /* EFETUA O DESENHO DO COBRA */
@@ -113,15 +115,15 @@ void idle(){
     if(vetor['a'])
         dx+=(0.1*timeDifference);
     if((salta == 1)){
-        dy+=(0.1*timeDifference);
-        if(dy==100){
+        dy+=(0.2*timeDifference);
+        if(dy>=100){
             salta = 2;
             exit;
         }
     }
     if(salta == 2){
-        dy-=(0.1*timeDifference);
-        if(dy == 0){
+        dy-=(0.4*timeDifference);
+        if(dy <= 0){
             salta = 0;
             exit;
         }
