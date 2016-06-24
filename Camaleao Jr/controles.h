@@ -25,7 +25,7 @@ void keyboardup(unsigned char tecla, int x, int y)
 {
     switch(tecla)
     {
-        case 'w':
+        case 32:
             
             vetor[(int)('w')] = 0;
             break;
@@ -33,15 +33,14 @@ void keyboardup(unsigned char tecla, int x, int y)
             
             vetor[(int)('s')] = 0;
             break;
-        case 'a':
-            
-            vetor[(int)('a')] = 0;
-            break;
         case 'd':
             
             vetor[(int)('d')] = 0;
             break;
-        case 'z':
+	case 'a':
+	    vetor[(int)('a')] = 0;
+            break;        
+	case 'z':
             vetor[(int)('z')] = 0;
             break;
     }
@@ -56,7 +55,7 @@ void keyboard(unsigned char tecla, int x, int y)
         case 27:
             exit(0);
             break;
-        case 'w':
+        case 32:
             vetor[(int)('w')] = 1;
             //dy+=2;
             break;
@@ -64,16 +63,8 @@ void keyboard(unsigned char tecla, int x, int y)
             vetor[(int)('s')] = 1;
             //dy-=2;
             break;
-        case 'a':
-            vetor[(int)('a')] = 1;
-            //dx-=2;
-            contecla++;
-            if((contecla%2) == 0 ){
-                theta = 0;
-            }
-            if((contecla%2) == 1 ){
-                theta = 45;
-            }
+	case 'a':
+	    vetor[(int)('a')] = 1;
             break;
         case 'd':
             vetor[(int)('d')] = 1;
@@ -89,11 +80,10 @@ void keyboard(unsigned char tecla, int x, int y)
         case 'z':
             vetor[(int)('z')] = 1;
             lingua = 1;
-            //g-=2;
             break;
         case 'x':
             lingua = 0;
-            g=-2;
+            volta_lingua =0;
             break;
             
     }

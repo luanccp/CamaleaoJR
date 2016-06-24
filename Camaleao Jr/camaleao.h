@@ -27,11 +27,11 @@
 #include <stdio.h>
 
 using namespace std;
-int dx,dy;
+int dx,dy,andar_mosca,desloca_nuvem;
 int theta;
 int contecla = 0;
 int lingua = 0, salta = 0;
-float g = 0;
+float volta_lingua = 0;
 int vetor[256]= {0};
 
 
@@ -185,14 +185,14 @@ void desenhaOlho()
 {
     glColor3f( 0.0, 0.0, 0.0 );
     drawHollowCircle(0,0,2);
-    drawHollowCircle(0,0,4);
+    //drawHollowCircle(0,0,4);
 }
 
 void desenhaLingua(){
     glColor3f(1.0f, 0.0f, 0.0f); //VERMELHO
     glBegin(GL_LINES);
     glVertex3f(-2.0,-7.0,0.0);
-    glVertex3f(g,-7.0,0.0);
+    glVertex3f(volta_lingua,-7.0,0.0);
     glEnd();
 }
 
@@ -211,14 +211,12 @@ void camaleao_display(void)
     	glTranslatef(dx+45, dy+2, 0);
     	desenhaCorpo2();
     glPopMatrix();
-    
     if(lingua == 1){
         glPushMatrix();
         glTranslatef(dx+25, dy, 0);
         desenhaLingua();
         glPopMatrix();
     }
-    
     glPushMatrix();
     	glTranslatef(dx+25, dy, 0);
     	desenhaCabeca1();

@@ -14,9 +14,13 @@
 
 #ifndef Camaleao_Jr_moscas_h
 #define Camaleao_Jr_moscas_h
-
-
 #endif
+
+
+typedef struct mosca {
+    char * cor;
+    int bonus;
+} Mosca ;
 
 void DrawEllipse(float a,float b, float c)
 {
@@ -69,43 +73,9 @@ void mosca_desenhaCorpo()
 		glColor3f(0,0,0);
 		DrawEllipse(5,15,0);
 	glEnd();
-	//glBegin(GL_QUADS);
-	//	glVertex3f(.0,0.0,0.0);
-	//	glVertex3f();
-	//	glVertex3f();
-	//	glVertex3f();
-	//glEnd();
-	/*glBegin(GL_POLYGON);
-		//glVertex3f(-10.0,0.0,0.0);
-		glVertex3f(-13.0,-1.0,0.0);
-		glVertex3f(-15.0,-2.0,0.0);
-		glVertex3f(-14.0,-3.0,0.0);
-		glVertex3f(-12.0,-4.0,0.0);
-		glVertex3f(-0.0,-5.0,0.0);
-		glVertex3f(12.0,-4.0,0.0);
-		glVertex3f(14.0,-3.0,0.0);
-		glVertex3f(15.0,-2.0,0.0);
-		glVertex3f(13.0,-1.0,0.0);
-		//glVertex3f(10.0,0.0,0.0);
-		glVertex3f(5.0,13.0,0.0);
-		glVertex3f(-5.0,13.0,0.0);
-	glEnd();*/
 	
 }
-//void mosca_desenhaAsas()
-/*{
-	glColor3f(1.0f,0.0f,1.0f);
-	glBegin(GL_POLYGON);
-		glVertex3f(-5.0,0.0,0.0);
-		glVertex3f(-10.0,-5.0,0.0);
-		glVertex3f(-8.0,-6.0,0.0);
-		glVertex3f(-6.0,-7.0,0.0);
-		glVertex3f(-4.0,-8.0,0.0);
-		glVertex3f(-2.0,-7.0,0.0);		
-		glVertex3f(-1.0,-6.0,0.0);		
-		glVertex3f(-0.0,-5.0,0.0);	
-	glEnd();
-}*/
+
 void mosca_primeiroOlho()
 {
 	glBegin(GL_QUADS);	
@@ -159,47 +129,47 @@ void mosca_desenhaMao2()
 void mosca_display(void)
 {
 	glPushMatrix();
-	  glTranslatef(dx-70, dy-5, 0);
+	  glTranslatef(andar_mosca-70, -5, 0);
 	  mosca_asa1();
 	glPopMatrix();
 	glPushMatrix();
-	  glTranslatef(dx-70, dy-10, 0);
+	  glTranslatef(andar_mosca-70, -10, 0);
 	  mosca_asa2();
 	glPopMatrix();	
 	glPushMatrix();
-	    glTranslatef(dx-70, dy-11, 0);
+	    glTranslatef(andar_mosca-70, -11, 0);
 	    mosca_desenhaCorpo();
 	glPopMatrix();	
 	glPushMatrix();
-	  glTranslatef(dx-72, dy+3, 0);
+	  glTranslatef(andar_mosca-72, +3, 0);
 	  mosca_primeiroOlho();
 	glPopMatrix();
 	glPushMatrix();
-	  glTranslatef(dx-68, dy+3, 0);
+	  glTranslatef(andar_mosca-68, +3, 0);
 	  mosca_segundoOlho();
 	glPopMatrix();
 	glPushMatrix();
-	  glTranslatef(dx-65, dy-25, 0);
+	  glTranslatef(andar_mosca-65, -25, 0);
 	  mosca_desenhaPe1();
 	glPopMatrix();
 	glPushMatrix();
-	  glTranslatef(dx-68, dy-28, 0);
+	  glTranslatef(andar_mosca-68, -28, 0);
 	  mosca_desenhaPe1();
 	glPopMatrix();		
 	glPushMatrix();
-	  glTranslatef(dx-72, dy-28, 0);
+	  glTranslatef(andar_mosca-72, -28, 0);
 	  mosca_desenhaPe2();
 	glPopMatrix();
 	glPushMatrix();
-	  glTranslatef(dx-75, dy-25, 0);
+	  glTranslatef(andar_mosca-75, -25, 0);
 	  mosca_desenhaPe2();
 	glPopMatrix();
 	glPushMatrix();
-	  glTranslatef(dx-78, dy-14, 0);
+	  glTranslatef(andar_mosca-78, -14, 0);
 	  mosca_desenhaMao1();
 	glPopMatrix();
 	glPushMatrix();
-	glTranslatef(dx-62, dy-14, 0);
+	glTranslatef(andar_mosca-62, -14, 0);
 	  mosca_desenhaMao2();
 	glPopMatrix();	
 	
