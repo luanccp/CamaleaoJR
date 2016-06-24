@@ -47,9 +47,9 @@ void drawHollowCircle(float x, float y, float radius)
     glBegin(GL_LINE_STRIP);
     for (i = 0; i<= lineAmount; i++){
         glVertex2f(
-         x + (radius * cos(i*twicePi / lineAmount)),
-         y + (radius * sin(i*twicePi / lineAmount))
-         );
+           x + (radius * cos(i*twicePi / lineAmount)),
+           y + (radius * sin(i*twicePi / lineAmount))
+           );
     }
     glEnd();
     glPopMatrix();
@@ -235,6 +235,7 @@ void camaleao_display(void)
     glRotatef(-theta,0,0,1);
     desenhaPe2();
     glPopMatrix();
+    
     glPushMatrix();
     glTranslatef(dx+25, dy+7, 0);
     desenhaOlho();

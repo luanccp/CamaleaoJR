@@ -21,25 +21,28 @@
 #include <stdio.h>
 
 
+
+
 void keyboardup(unsigned char tecla, int x, int y)
 {
     switch(tecla)
     {
-        case 32:
-        
+        case 'w':
         vetor[(int)('w')] = 0;
         break;
+
         case 's':
-        
         vetor[(int)('s')] = 0;
         break;
+
         case 'd':
-        
         vetor[(int)('d')] = 0;
         break;
+
         case 'a':
         vetor[(int)('a')] = 0;
-        break;        
+        break;   
+             
         case 'z':
         vetor[(int)('z')] = 0;
         break;
@@ -55,37 +58,27 @@ void keyboard(unsigned char tecla, int x, int y)
         case 27:
         exit(0);
         break;
-        case 32:
-        vetor[(int)('w')] = 1;
-            //dy+=2;
-        break;
+
         case 's':
-        vetor[(int)('s')] = 1;
-            //dy-=2;
+        // vetor[(int)('s')] = 1;
+        dy-=2;
         break;
-        case 'a':
-        vetor[(int)('a')] = 1;
+
+        case 'w':
+        vetor[(int)('w')] = 1;
         break;
-        case 'd':
-        vetor[(int)('d')] = 1;
-            //dx+=2;
-        contecla++;
-        if((contecla%2) == 0 ){
-            theta = 0;
-        }
-        if((contecla%2) == 1 ){
-            theta = -45;
-        }
-        break;
+
+        
         case 'z':
         vetor[(int)('z')] = 1;
         lingua = 1;
         break;
+
         case 'x':
         lingua = 0;
         volta_lingua =0;
         break;
-        
+
     }
     glutPostRedisplay();
 }
