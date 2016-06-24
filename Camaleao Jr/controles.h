@@ -26,23 +26,23 @@ void keyboardup(unsigned char tecla, int x, int y)
     switch(tecla)
     {
         case 32:
-            
-            vetor[(int)('w')] = 0;
-            break;
+        
+        vetor[(int)('w')] = 0;
+        break;
         case 's':
-            
-            vetor[(int)('s')] = 0;
-            break;
+        
+        vetor[(int)('s')] = 0;
+        break;
         case 'd':
-            
-            vetor[(int)('d')] = 0;
-            break;
-	case 'a':
-	    vetor[(int)('a')] = 0;
-            break;        
-	case 'z':
-            vetor[(int)('z')] = 0;
-            break;
+        
+        vetor[(int)('d')] = 0;
+        break;
+        case 'a':
+        vetor[(int)('a')] = 0;
+        break;        
+        case 'z':
+        vetor[(int)('z')] = 0;
+        break;
     }
     
     glutPostRedisplay();
@@ -53,39 +53,39 @@ void keyboard(unsigned char tecla, int x, int y)
     switch(tecla)
     {
         case 27:
-            exit(0);
-            break;
+        exit(0);
+        break;
         case 32:
-            vetor[(int)('w')] = 1;
+        vetor[(int)('w')] = 1;
             //dy+=2;
-            break;
+        break;
         case 's':
-            vetor[(int)('s')] = 1;
+        vetor[(int)('s')] = 1;
             //dy-=2;
-            break;
-	case 'a':
-	    vetor[(int)('a')] = 1;
-            break;
+        break;
+        case 'a':
+        vetor[(int)('a')] = 1;
+        break;
         case 'd':
-            vetor[(int)('d')] = 1;
+        vetor[(int)('d')] = 1;
             //dx+=2;
-            contecla++;
-            if((contecla%2) == 0 ){
-                theta = 0;
-            }
-            if((contecla%2) == 1 ){
-                theta = -45;
-            }
-            break;
+        contecla++;
+        if((contecla%2) == 0 ){
+            theta = 0;
+        }
+        if((contecla%2) == 1 ){
+            theta = -45;
+        }
+        break;
         case 'z':
-            vetor[(int)('z')] = 1;
-            lingua = 1;
-            break;
+        vetor[(int)('z')] = 1;
+        lingua = 1;
+        break;
         case 'x':
-            lingua = 0;
-            volta_lingua =0;
-            break;
-            
+        lingua = 0;
+        volta_lingua =0;
+        break;
+        
     }
     glutPostRedisplay();
 }
