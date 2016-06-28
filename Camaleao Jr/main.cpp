@@ -117,7 +117,7 @@ void display( void )
    int k = 0;
    if(auxRandomica[k] == 2)
    {
-	if(((deslocaChao) < (dy+2)) && ((deslocaChao+80) < (dy +44)))
+	if(((deslocaChao) < (dy+2)) && ((deslocaChao+80) < (dy+44)))
 	{
 		ativa_descolamento_bloco = 1;		
 		} 
@@ -127,7 +127,7 @@ void display( void )
    {
 	if(((deslocaChao) < (dy+2)) && ((deslocaChao+80) < (dy+44)))
 	{
-		ativa_descolamento_bloco = 1;		
+		//ativa_descolamento_bloco = 1;		
 		} 
 
 	
