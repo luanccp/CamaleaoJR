@@ -67,7 +67,8 @@ void display( void )
    {
        for (int i=0; i<10; i++)
        {
-           auxRandomica[i] = (rand() % 3);			
+           auxRandomica[i] = (rand() % 3);
+		printf("%d\n",auxRandomica[i]);					
        }
 	//geração de moscas
        for(int j=0;j<10;j++){
@@ -111,30 +112,30 @@ void display( void )
        glTranslatef(0 - automaticoX[j], 27 - automaticoY[j], 0);
        mosca_display();
        glPopMatrix();
+   	}
    }
-   if(auxRandomica[j]==0){		
-      if((vetor_espacamentoX[1]+90)-andar_fase == (78-dx) ){
-			//fazer o contato do Y aqui
-			//if((posição camaleao > deslocaChao) && (posição do camaleoa < 80 + deslocaChao)){
-        ativa_descolamento_bloco = 1;
-			//	}
-    }	
-}else if(auxRandomica[1]==1){
-   if((vetor_espacamentoX[j]+90)-andar_fase == (78-dx)){
-    		//fazer o contato do Y aqui
-			//if((posição camaleao > deslocaChao) && (posição do camaleoa < 80 + deslocaChao)){
-    ativa_descolamento_bloco = 1;
-			//	}
-}
-}else if(auxRandomica[1]==2){
-   if((vetor_espacamentoX[j]+90)-andar_fase == (78-dx)){
-    		//fazer o contato do Y aqui
-			//if((posição camaleao > deslocaChao) && (posição do camaleoa < 80 + deslocaChao)){
-    ativa_descolamento_bloco = 1;
-			//	}
-}
-}
-} 
+   int k = 0;
+   if(auxRandomica[k] == 2)
+   {
+	if(((deslocaChao) < (dy+2)) && ((deslocaChao+80) < (dy +44)))
+	{
+		ativa_descolamento_bloco = 1;		
+		} 
+
+	}
+   if(auxRandomica[k] == 1)
+   {
+	if(((deslocaChao) < (dy+2)) && ((deslocaChao+80) < (dy+44)))
+	{
+		ativa_descolamento_bloco = 1;		
+		} 
+
+	
+	}
+   if(auxRandomica[k] == 2)
+   {
+
+	}		 		 
 	//espacamento
 
     /* EFETUA O DESENHO DO COBRA */
@@ -166,7 +167,7 @@ void idle(){
     timeDifference = currentTime - previousTime;
     previousTime = currentTime;
 
-    printf("%i\n", fatorVelocidade );
+  //  printf("%i\n", fatorVelocidade );
     contecla++;
     if((fatorVelocidade%8) == 0 ){
         theta = 0;
@@ -177,8 +178,8 @@ void idle(){
     fatorVelocidade++;
 
 
-    if(vetor['w'] && dy<20) dy+=(0.1*timeDifference);
-    if(vetor['s'] && dy>15) dy-=(0.1*timeDifference);
+    if(vetor['w'] && dy<55) dy+=(0.1*timeDifference);
+    if(vetor['s'] && dy>-250) dy-=(0.1*timeDifference);
 
         
         
@@ -186,7 +187,7 @@ void idle(){
     if(lingua==1){
         volta_lingua-=(0.1*timeDifference);
         //printf("lingua %f, dx: %d \n",g,dx);
-        if(volta_lingua<=(dx-100)){
+        if(volta_lingua<=(dx-180)){
             lingua=0;
             volta_lingua = 0;
         }
