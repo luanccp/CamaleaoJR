@@ -126,7 +126,7 @@ void fase_display( bool desenhaBloco)
     glTranslatef(-andar_fase, 0, 0);
     vetor_espacamentoX[0]= espacamentoX;        
     if (desenhaBloco ==true) {
-        for (int i=0; i<10; i++)
+        for (int i=0; i<20; i++)
         {
                     //auxRandomica[10] = (rand() % 3);
             glColor3f(0.6f,0.5f,0.4f);
@@ -154,7 +154,7 @@ void fase_display( bool desenhaBloco)
                 glVertex3f(espacamentoX +80,160+deslocaChao+ (2*espacamentoY),0.0);
                 glEnd();
             }
-            espacamentoX += 100;
+            espacamentoX += 150;
             vetor_espacamentoX[i+1]= espacamentoX;
 
         /* DESENHA UMA NUVEM EM UM DETERMINADO INTERVALO */

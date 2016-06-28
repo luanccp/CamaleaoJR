@@ -20,6 +20,9 @@
 #include <math.h>
 #include <stdio.h>
 
+/* Flags */
+bool pause = false;
+
 
 
 
@@ -60,8 +63,8 @@ void keyboard(unsigned char tecla, int x, int y)
         break;
 
         case 's':
-        // vetor[(int)('s')] = 1;
-        dy-=2;
+        vetor[(int)('s')] = 1;
+        //dy-=2;
         break;
 
         case 'w':
@@ -77,6 +80,12 @@ void keyboard(unsigned char tecla, int x, int y)
         case 'x':
         lingua = 0;
         volta_lingua =0;
+        break;
+
+        case 'p':
+        if (pause == false) pause = true;
+        else pause = false;
+        
         break;
 
     }

@@ -40,6 +40,9 @@ bool cria_fase = true;
 int posicaoBlocos[10];
 int ativa_descolamento_bloco = 0;
 int fatorVelocidade = 0;
+int pauseTime;
+double fatorDificuldade =1;
+
 
 //teste para gerar varias moscas
 int automaticoX[10];
@@ -56,6 +59,20 @@ int automaticoY[10];
       if(vrand[i]==vrand[j])
        return false;
 }
+
+
+/**/
+int selecionaDificuldade()
+{
+  int resposta;
+  printf("\nESCOLHA O NIVEL:");
+  printf("\n1 - Facil");
+  printf("\n2 - Normal");
+  printf("\n3 - Dificil");
+  scanf("%d", &resposta);
+  return resposta;
+}
+
 
 void display( void )
 {
@@ -161,12 +178,15 @@ void idle(){
     static GLdouble previousTime = 0;
     GLdouble currentTime;
     GLdouble timeDifference;
+    GLdouble timePause;
+
+
     
     currentTime  = glutGet(GLUT_ELAPSED_TIME);
-    timeDifference = currentTime - previousTime;
+    timeDifference = (currentTime - previousTime)*fatorDificuldade;
     previousTime = currentTime;
 
-    printf("%i\n", fatorVelocidade );
+    //printf("PAUSE: %f\nCURRENT: %f\n----------------\n", pauseTime, currentTime );
     contecla++;
     if((fatorVelocidade%8) == 0 ){
         theta = 0;
@@ -192,6 +212,7 @@ void idle(){
         }
     }
 
+
     andar_fase+=(0.1*timeDifference);				    
     andar_mosca+=(0.1*timeDifference);
     if (ativa_descolamento_bloco == 1 )  dx+=(0.1*timeDifference);
@@ -199,7 +220,7 @@ void idle(){
 
     if(desloca_nuvem <= (300-andar_fase)) desloca_nuvem +=(0.1*timeDifference);
     else desloca_nuvem = (-300-andar_fase);
-
+    
     glutPostRedisplay();
  }
 
@@ -210,9 +231,8 @@ void idle(){
     
     printf("\n======== CAMALEAO JUNIOR ========\n\n");
     printf("1) Start game\n");
-    printf("2) Select dificulty\n");
-    printf("3) Credits\n");
-    printf("4) Exit\n");
+    printf("2) Credits\n");
+    printf("3) Exit\n");
     printf("\n\t\tselect: ");
     
     
@@ -222,6 +242,7 @@ void idle(){
     switch(valor)
     {
         case 1:
+        fatorDificuldade = selecionaDificuldade();
         glutInit( &argc, argv );
         glutInitDisplayMode( GLUT_DOUBLE | GLUT_RGB );
         glutInitWindowSize( MAXlargura, MAXaltura );
@@ -239,12 +260,10 @@ void idle(){
         break;
 
         case 2:
+        
         break;
 
         case 3:
-        break;
-
-        case 4:
         exit(0);
         break;
 
