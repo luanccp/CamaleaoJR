@@ -64,13 +64,11 @@ void keyboard(unsigned char tecla, int x, int y)
 
         case 's':
         vetor[(int)('s')] = 1;
-        //dy-=2;
         break;
 
         case 'w':
         vetor[(int)('w')] = 1;
         break;
-
         
         case 'z':
         vetor[(int)('z')] = 1;

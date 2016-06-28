@@ -125,11 +125,14 @@ void fase_display( bool desenhaBloco)
         
     glTranslatef(-andar_fase, 0, 0);
     vetor_espacamentoX[0]= espacamentoX;        
-    if (desenhaBloco ==true) {
-        for (int i=0; i<20; i++)
+
+    if (desenhaBloco == true) {
+        for (int i=0; i<10; i++)
+
         {
                     //auxRandomica[10] = (rand() % 3);
             glColor3f(0.6f,0.5f,0.4f);
+		
             if (auxRandomica[i] == 0) {
                 glBegin(GL_QUADS);
                 glVertex3f(espacamentoX,+deslocaChao,0.0);

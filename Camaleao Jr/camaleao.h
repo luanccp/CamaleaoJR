@@ -27,7 +27,7 @@
 #include <stdio.h>
 
 using namespace std;
-int dx,dy,andar_mosca,desloca_nuvem;
+int dx,dy=0,andar_mosca,desloca_nuvem;
 int theta;
 int contecla = 0;
 int lingua = 0, salta = 0;
@@ -67,14 +67,14 @@ void desenhaRabo(void)
     glVertex3f(0.0,5.0,0.0);
     glVertex3f(-12.0,-5.0,0.0);
     glEnd();
-    
+     glColor3f(1.0f, 0.0f, 1.0f);
     glBegin(GL_QUADS);
     glVertex3f(0.0,0.0,0.0);
     glVertex3f(20.0,-8.0,0.0);
     glVertex3f(20.0,0.0,0.0);
     glVertex3f(0.0,5.0,0.0);
     glEnd();
-    
+    // glColor3f(0.0f, 1.0f, 1.0f);
     glBegin(GL_TRIANGLE_FAN);
     glVertex3f(20.0,-8.0,0.0);
     glVertex3f(19.0,-14.0,0.0);
@@ -83,7 +83,7 @@ void desenhaRabo(void)
     glVertex3f(20.0,0.0,0.0);
     glEnd();
     
-
+ //glColor3f(0.0f, 0.0f, .0f);	
     glBegin(GL_TRIANGLE_FAN);
     glVertex3f(19.0,-14.0,0.0);
     glVertex3f(16.0,-8.0,0.0);
@@ -199,7 +199,9 @@ void desenhaLingua(){
 void camaleao_display(void)
 {
     glPushMatrix();
-    glTranslatef(dx+74, +16, 0);
+
+    glTranslatef(dx+74, 16, 0);
+
     desenhaRabo();
     glPopMatrix();
     
@@ -208,7 +210,9 @@ void camaleao_display(void)
     desenhaCorpo1();
     glPopMatrix();
     glPushMatrix();
-    glTranslatef(dx+45,+2, 0);
+
+    glTranslatef(dx+45, 2, 0);
+
     desenhaCorpo2();
     glPopMatrix();
     if(lingua == 1){
@@ -222,7 +226,9 @@ void camaleao_display(void)
     desenhaCabeca1();
     glPopMatrix();
     glPushMatrix();
-    glTranslatef(dx+25, +2, 0);
+
+    glTranslatef(dx+25, 2, 0);
+
     desenhaCabeca2();
     glPopMatrix();
     glPushMatrix();
@@ -237,7 +243,9 @@ void camaleao_display(void)
     glPopMatrix();
     
     glPushMatrix();
-    glTranslatef(dx+25, +7, 0);
+
+    glTranslatef(dx+25, 7, 0);
+
     desenhaOlho();
     glPopMatrix();
 }
