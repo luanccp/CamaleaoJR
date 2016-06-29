@@ -29,6 +29,7 @@ bool desenhaBloco = false;
 int auxRandomica[10] ;
 int posicaoAltura, espacamentoX, espacamentoY;
 int vetor_espacamentoX[10];
+double fatorDificuldade =1;
 
 /* FUNCAO QUE DESENHA UMA ELIPSE */
 void DrawEllipsee(float a,float b, float c)
@@ -127,7 +128,7 @@ void fase_display( bool desenhaBloco)
     vetor_espacamentoX[0]= espacamentoX;        
 
     if (desenhaBloco == true) {
-        for (int i=0; i<10; i++)
+        for (int i=0; i< (30*fatorDificuldade); i++)
 
         {
                     //auxRandomica[10] = (rand() % 3);
