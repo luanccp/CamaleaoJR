@@ -40,6 +40,11 @@ bool cria_fase = true;
 int posicaoBlocos[10];
 int ativa_descolamento_bloco = 0;
 int fatorVelocidade = 0;
+int pauseTime;
+double fatorDificuldade =1;
+int k = 0;
+
+int y_mosca_superior = 71 , y_mosca_inferior = 39;
 
 //teste para gerar varias moscas
 int automaticoX[10];
@@ -57,6 +62,20 @@ int automaticoY[10];
        return false;
 }
 
+
+/**/
+int selecionaDificuldade()
+{
+  int resposta;
+  printf("\nESCOLHA O NIVEL:");
+  printf("\n1 - Facil");
+  printf("\n2 - Normal");
+  printf("\n3 - Dificil");
+  scanf("%d", &resposta);
+  return resposta;
+}
+
+
 void display( void )
 {
 	//Limpar todos os pixels
@@ -68,12 +87,12 @@ void display( void )
        for (int i=0; i<10; i++)
        {
            auxRandomica[i] = (rand() % 3);
-		printf("%d\n",auxRandomica[i]);					
+		//printf("%d\n",auxRandomica[i]);					
        }
 	//geração de moscas
        for(int j=0;j<10;j++){
-          automaticoX[j] = 10*(rand() % 30);
-          automaticoY[j] = 10*(rand() % 10);
+          automaticoX[j] = 150*(rand() % 10);
+          automaticoY[j] = 10*(rand() % 50);
       }
       cria_fase = false;
   }	
@@ -86,8 +105,8 @@ void display( void )
 
 /* EFETUA O DESENHO DO CAMALEAO */
   glPushMatrix();    
+  glTranslatef(dx+0, 27+dy, 0);
   glRotatef(180,0.0,1.0,0.0);	
-  glTranslatef(0+dx, 27+dy, 0);	
   camaleao_display();
   glPopMatrix();
   glPushMatrix();   
@@ -96,9 +115,10 @@ void display( void )
 
     //-68 +dx == g + dx
 
-  for(int j=0;j<10;j++)
+  for(int j=0;j<30;j++)
   {
-     if ((volta_lingua + andar_mosca - automaticoX[j]) == ((+78+dx))) 
+    //int y_mosca_superior = 16 , y_mosca_inferior = -16;
+     if ((andar_mosca - automaticoX[j]) == ((-30)) && (dy <= (y_mosca_superior-automaticoY[j])) && (dy >= (y_mosca_inferior-automaticoY[j]))) 
      {
 			//fazer contato no eixo Y		
 			//if((27+10 automatico == 27 + dy +  ))        
@@ -109,33 +129,44 @@ void display( void )
      {
        glPushMatrix();
        glRotatef(180,0.0,1.0,0.0);
-       glTranslatef(0 - automaticoX[j], 27 - automaticoY[j], 0);
+       glTranslatef(55 - automaticoX[j], 55 - automaticoY[j], 0);
        mosca_display();
        glPopMatrix();
    	}
-   }
-   int k = 0;
+  } 
+   //printf("andar_fase = %d\n",andar_fase);
+    //printf("dy =%d \n",dy);	
+  
+  
    if(auxRandomica[k] == 2)
    {
-	if(((deslocaChao) < (dy+2)) && ((deslocaChao+80) < (dy+44)))
-	{
-		ativa_descolamento_bloco = 1;		
-		} 
-
-	}
+    //x_camaleao_tras = -42,x_camaleao_superior_frente = 42,
+	   if( (dy < 55) && (dy > 19) && x_camaleao_superior_frente >= (vetor_espacamentoX[k]-andar_fase))
+	   {
+         	ativa_descolamento_bloco = 1;		
+			   
+         }
+	 }
    if(auxRandomica[k] == 1)
    {
-	if(((deslocaChao) < (dy+2)) && ((deslocaChao+80) < (dy+44)))
-	{
-		//ativa_descolamento_bloco = 1;		
-		} 
-
-	
-	}
-   if(auxRandomica[k] == 2)
+	   if((dy < -64) && (dy > -96)  && x_camaleao_superior_frente >= (vetor_espacamentoX[k]-andar_fase))
+	   {
+			 ativa_descolamento_bloco = 1;		
+			 }		
+	  }
+   if(auxRandomica[k] == 0)
    {
-
-	}		 		 
+	   if((dy < -220) && (dy > -250) && x_camaleao_superior_frente >= (vetor_espacamentoX[k]-andar_fase))
+	   {
+				ativa_descolamento_bloco = 1;		
+		  	} 
+	  }		 		 
+	 if(((vetor_espacamentoX[k]-andar_fase) <= x_camaleao_superior_frente)){
+        k++;
+         printf(".....%d\n",k);
+        }
+    //if(k == 9){ x = false;}  
+  
 	//espacamento
 
     /* EFETUA O DESENHO DO COBRA */
@@ -162,12 +193,15 @@ void idle(){
     static GLdouble previousTime = 0;
     GLdouble currentTime;
     GLdouble timeDifference;
+    GLdouble timePause;
+
+
     
     currentTime  = glutGet(GLUT_ELAPSED_TIME);
-    timeDifference = currentTime - previousTime;
+    timeDifference = (currentTime - previousTime)*fatorDificuldade;
     previousTime = currentTime;
 
-  //  printf("%i\n", fatorVelocidade );
+
     contecla++;
     if((fatorVelocidade%8) == 0 ){
         theta = 0;
@@ -193,15 +227,26 @@ void idle(){
         }
     }
 
+
     andar_fase+=(0.1*timeDifference);				    
     andar_mosca+=(0.1*timeDifference);
-    if (ativa_descolamento_bloco == 1 )  dx+=(0.1*timeDifference);
+   if (ativa_descolamento_bloco == 1 ) { dx-=(0.1*timeDifference);}
 
 
     if(desloca_nuvem <= (300-andar_fase)) desloca_nuvem +=(0.1*timeDifference);
     else desloca_nuvem = (-300-andar_fase);
-
+    
     glutPostRedisplay();
+    
+    //codigo para perde o jogo 
+    //printf("dx = %d",dx);
+    if(dx <= -250)
+    {
+      exit(0);
+    } 
+
+
+
  }
 
 
@@ -211,9 +256,8 @@ void idle(){
     
     printf("\n======== CAMALEAO JUNIOR ========\n\n");
     printf("1) Start game\n");
-    printf("2) Select dificulty\n");
-    printf("3) Credits\n");
-    printf("4) Exit\n");
+    printf("2) Credits\n");
+    printf("3) Exit\n");
     printf("\n\t\tselect: ");
     
     
@@ -223,6 +267,7 @@ void idle(){
     switch(valor)
     {
         case 1:
+        fatorDificuldade = selecionaDificuldade();
         glutInit( &argc, argv );
         glutInitDisplayMode( GLUT_DOUBLE | GLUT_RGB );
         glutInitWindowSize( MAXlargura, MAXaltura );
@@ -240,12 +285,10 @@ void idle(){
         break;
 
         case 2:
+        
         break;
 
         case 3:
-        break;
-
-        case 4:
         exit(0);
         break;
 

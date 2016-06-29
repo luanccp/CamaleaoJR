@@ -20,6 +20,9 @@
 #include <math.h>
 #include <stdio.h>
 
+/* Flags */
+bool pause = false;
+
 
 
 
@@ -75,6 +78,12 @@ void keyboard(unsigned char tecla, int x, int y)
         case 'x':
         lingua = 0;
         volta_lingua =0;
+        break;
+
+        case 'p':
+        if (pause == false) pause = true;
+        else pause = false;
+        
         break;
 
     }
